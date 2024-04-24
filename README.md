@@ -66,3 +66,33 @@ For Andy's sound have it's effect's volume be correlated to distance to the play
 Sprites Ideas/Goals
 
 image Boy Sprite image Girl Sprite Using WSU color palette. Main Menu - Character Selection Menu - Select Button - Play Button - Exit Button - Settings Button - Settings Menu - Floor Sprite (gray box) Wall Sprites - Make small so we can fit everything together Andy Sprite - Win Objective Sprite - Code Test Menu - Obstacle Sprites: Wall With A Shooter in it Projectile Sprite (fireball/cannon ball/ arrow)
+
+gameplay loop in switch case:
+	int option = 0;
+	switch (option)
+	{
+	case 1://maze
+		//if touch andy/fireball
+		//option = 2
+	case 2://gulag
+		//if win gulag
+		//option = 1
+		//if lose gulag
+		//option = 4
+	case 3://start menu
+		//click play
+		//option = 1
+		//click quit
+		//option = 6
+	case 4://death menu
+		//click play again
+		//option = 1
+		//click quit
+		//option = 6
+	case 5://win menu
+		//click play again
+		//option = 1
+		//click quit
+		//option = 6
+	case 6://quit game
+	}
