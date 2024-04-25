@@ -6,72 +6,35 @@
 #include "SFML/Window.hpp"
 #include "SFML/Audio.hpp"
 
+#include "Animation.h"
+
 using namespace::sf;
 
 using std::string;
 
+//DISCLAIMER
+//a fair amount of the SFML related code here is from Hilze Vonck's youtube tutorials  
+
 class Entity
 {
 private:
-	int _xCoord;
-	int _yCoord;
-	int _xWidth;
-	int _yWidth;
-	string _name;
-	Sprite _entitySprite;
+	RectangleShape _body;
+	Animation _animation;
+	unsigned int _row;
+	float _speed;
 
 public:
-	//getters
-	int getXCoord(void)
+	Entity(Texture* texture, Vector2u imageCount, float switchTime, float speed);
+	~Entity() {};
+
+	void update(float deltaTime);
+	void draw(RenderWindow& window);
+
+	Vector2f getPosition()
 	{
-		return _xCoord;
-	}
-	int getYCoord(void)
-	{
-		return _yCoord;
-	}
-	int getXWidth(void)
-	{
-		return _xWidth;
-	}
-	int getYWidth(void)
-	{
-		return _yWidth;
-	}
-	string getName(void)
-	{
-		return _name;
-	}
-	Sprite getSprite(void)
-	{
-		return _entitySprite;
+		return _body.getPosition();
 	}
 
-	//setters
-	void setXCoord(int xCoord)
-	{
-		_xCoord = xCoord;
-	}
-	void setYCoord(int yCoord)
-	{
-		_yCoord = yCoord;
-	}
-	void setXWidth(int xWidth)
-	{
-		_xWidth = xWidth;
-	}
-	void setYWidth(int yWidth)
-	{
-		_yWidth = yWidth;
-	}
-	void setName(string name)
-	{
-		_name = name;
-	}
-	void setSprite(Sprite entitySprite)
-	{
-		_entitySprite = entitySprite;
-	}
 };
 
 

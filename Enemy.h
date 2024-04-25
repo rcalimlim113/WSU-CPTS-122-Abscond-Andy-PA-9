@@ -1,11 +1,24 @@
 #pragma once
+
 #include "Entity.h"
-class Enemy : public Entity
+
+class Enemy : protected Entity
 {
 private:
-	int _speed;
+
+protected:
+	//int _speed;
+	//Enemy(int speed = 0)
+	//{
+	//	_speed = speed;
+	//}
 
 public:
+	//void setSpeed(int newSpeed)
+	//{
+	//	_speed = newSpeed;
+	//}
+
 
 };
 
