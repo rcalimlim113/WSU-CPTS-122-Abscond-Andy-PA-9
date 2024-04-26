@@ -3,44 +3,37 @@
 #include "SFML/Graphics.hpp"
 
 #include "Animation.h"
-#include "Collider.h"
 
 using namespace::sf;
-
-//DISCLAIMER
-//a fair amount of the SFML related code here is from Hilze Vonck's youtube tutorials  
 
 class Entity
 {
 private:
-	RectangleShape _body;
-	Animation _animation;
-	unsigned int _row;
-	float _speed;
-
+	Sprite _sprite;
 public:
-	//constructor and destructor
-	Entity(Texture* texture, Vector2u imageCount, float switchTime, float speed);
-	~Entity() {};
-
-	//updates sprite position based on keyboard inputs
-	void update(float deltaTime);
-
-	//draws player sprite to window
-	void draw(RenderWindow& window)
+	//constructors and destructor
+	Entity() {};
+	Entity(Sprite sprite)
 	{
-		window.draw(_body);
+		_sprite = sprite;
 	}
-
-	//returns player's position
+	~Entity() {};
+	//getters and setters
+	Sprite getSprite()
+	{
+		return _sprite;
+	}
+	void setSprite(Sprite sprite)
+	{
+		_sprite = sprite;
+	}
 	Vector2f getPosition()
 	{
-		return _body.getPosition();
+		return _sprite.getPosition();
 	}
-	//collision function
-	Collider getCollider()
+	void setPosition(Vector2f position)
 	{
-		return Collider(_body);
+		_sprite.setPosition(position);
 	}
 
 };

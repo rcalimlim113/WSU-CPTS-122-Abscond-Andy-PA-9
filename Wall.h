@@ -1,27 +1,18 @@
 #pragma once
 
 #include "SFML/Graphics.hpp"
-#include "Collider.h"
+
+#include "Entity.h"
 
 using namespace::sf;
 
-class Wall
+class Wall : public Entity
 {
 private:
-	RectangleShape _body;
 
 public:
-	//constructor & destructor
-	Wall(Texture* texture, Vector2f size, Vector2f position);
-	~Wall() {};
-
-	void draw(RenderWindow& window)
+	Wall(Sprite sprite)
 	{
-		window.draw(_body);
-	}
-	Collider getCollider()
-	{
-		return Collider(_body);
+		setSprite(sprite);
 	}
 };
-
