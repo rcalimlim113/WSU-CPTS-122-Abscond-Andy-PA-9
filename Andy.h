@@ -5,24 +5,25 @@
 #include <iostream>
 
 #include "Entity.h"
-#include "Andy.h"
 
 using namespace::sf;
 
-class Player : public Entity
+class Andy : public Entity
 {
 private:
-	int _speed;
-	bool win;
-	bool lose;
+	int _speedX;
+	int _speedY;
+
 public:
 	//overwritten virtual functions
-	//initializes player
-	void initialize();
+	//initializes Andy
+	void initialize(int speedX, int speedY);
 	//loads texture to sprite
-	void load();
-	//updates position based on movement
-	void update();
+	void load(int startX, int startY);
+	//updates position based on player's movement
+	void updateX();
+	void updateY();
 	//draws sprite to game window
 	void draw(RenderWindow& gameWindow);
 };
+
