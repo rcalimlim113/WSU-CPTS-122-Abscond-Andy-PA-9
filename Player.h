@@ -25,5 +25,5 @@ public:
 	//updates position based on movement
 	void update();
 	//draws sprite to game window
-	void draw(RenderWindow* gameWindow);
+	void draw(RenderWindow& gameWindow);
 };

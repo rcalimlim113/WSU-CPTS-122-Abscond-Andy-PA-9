@@ -96,8 +96,8 @@ int main(void)
 		player.update();
 
 		//draw sprites
-		player.draw(&gameWindow);
-		wall.draw(&gameWindow);
+		player.draw(gameWindow);
+		wall.draw(gameWindow);
 
 		//displays screen
 		gameWindow.display();

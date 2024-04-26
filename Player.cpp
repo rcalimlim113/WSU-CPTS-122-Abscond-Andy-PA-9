@@ -46,7 +46,7 @@ void Player::update()
 	}
 }
 
-void Player::draw(RenderWindow* gameWindow)
+void Player::draw(RenderWindow& gameWindow)
 {
-	gameWindow->draw(getSprite());
+	gameWindow.draw(getSprite());
 }

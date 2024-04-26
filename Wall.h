@@ -16,5 +16,5 @@ public:
 	//loads texture to sprite
 	void load();
 	//draws sprite to game window
-	void draw(RenderWindow* gameWindow);
+	void draw(RenderWindow& gameWindow);
 };

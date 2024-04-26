@@ -18,7 +18,7 @@ public:
 	virtual void initialize() = 0;
 	virtual void load() = 0;
 	virtual void update() {};
-	virtual void draw(RenderWindow* gameWindow) = 0;
+	virtual void draw(RenderWindow& gameWindow) = 0;
 
 	//getters and setters
 	Sprite getSprite()

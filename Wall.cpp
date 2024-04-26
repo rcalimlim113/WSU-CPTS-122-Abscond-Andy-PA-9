@@ -21,7 +21,7 @@ void Wall::load()
 	}
 }
 
-void Wall::draw(RenderWindow* gameWindow)
+void Wall::draw(RenderWindow& gameWindow)
 {
-	gameWindow->draw(getSprite());
+	gameWindow.draw(getSprite());
 }
