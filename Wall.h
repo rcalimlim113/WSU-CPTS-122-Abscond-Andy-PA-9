@@ -10,7 +10,11 @@ using namespace::sf;
 class Wall : public Entity
 {
 public:
+	//overwritten virtual functions
+	//initializes wall
 	void initialize();
+	//loads texture to sprite
 	void load();
-	void draw();
+	//draws sprite to game window
+	void draw(RenderWindow* gameWindow);
 };

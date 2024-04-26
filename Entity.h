@@ -2,8 +2,6 @@
 
 #include "SFML/Graphics.hpp"
 
-#include "Animation.h"
-
 using namespace::sf;
 
 class Entity
@@ -16,10 +14,11 @@ public:
 	//Entity() {};
 	//~Entity() {};
 
+	//virtual functions for derived classes
 	virtual void initialize() = 0;
 	virtual void load() = 0;
 	virtual void update() {};
-	virtual void draw() = 0;
+	virtual void draw(RenderWindow* gameWindow) = 0;
 
 	//getters and setters
 	Sprite getSprite()

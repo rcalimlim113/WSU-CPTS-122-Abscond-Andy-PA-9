@@ -8,9 +8,6 @@
 #include "Entity.h"
 #include "Player.h"
 #include "Wall.h"
-#include "Enemy.h"
-#include "Fireball.h"
-#include "Animation.h"
 
 using namespace::sf;
 
@@ -39,39 +36,39 @@ int main(void)
 	//making view window for player character
 	View playerView(Vector2f(0.0, 0.0), Vector2f(VIEW_LENGTH, VIEW_HEIGHT));
 
-	//this is some SFML stuff that I dont get but Hilze Vonck uses it in the youtube tutorials and it's necessary for movement and animations and stuff
-	float deltaTime = 0.0f;
-	Clock clock;
-
 	//initializing textures
 	Texture texPlayerB, texPlayerG, texWall, texWallGun, texAndyChaser, texFireball0, texFireball1, texVictoryThing;
 	//initializing sprites
-	Sprite spriteBoy, spriteGirl, spriteWall, spriteWallGun, spriteAndyChaser, spriteFireball0, spriteFireball1, spriteVictoryThing;
+	Sprite spriteBoy, spriteWall, spriteWallGun, spriteAndyChaser, spriteFireball0, spriteFireball1, spriteVictoryThing;
 
+	//creating player & wall
 	Player player;
-	player.initialize();
-	player.load();
-
 	Wall wall;
+
+	//initializing player & wall
+	player.initialize();
 	wall.initialize();
+
+	//loading textures to player & wall
+	player.load();
 	wall.load();
 
-	//game loop
+	//--------------------------------------------- game loop ---------------------------------------
 	while (gameWindow.isOpen())
 	{
-		deltaTime = clock.restart().asSeconds();
-
 		//this is for window events, like closing the game window or resizing it
 		Event event;
 		while (gameWindow.pollEvent(event))
 		{
 			switch (event.type)
 			{
+				//close window event
 				case Event::Closed:
 				{
 					gameWindow.close();
 					break;
 				}
+				//resize window event
 				case Event::Resized:
 				{
 					resizeView(gameWindow, playerView);
@@ -80,20 +77,13 @@ int main(void)
 			}
 		}
 
-
-
-
-
-
-
-		//window display stuff, draws and displays the graphics
-
 		//collision
 		if (player.getSprite().getGlobalBounds().intersects(wall.getSprite().getGlobalBounds()))
 		{
 			std::cout << "collision 1" << std::endl;
 		}
 
+		//--------------------------------------------- window display stuff, draws and displays the graphics ----------------------------------
 
 		//center view on player's sprite
 		playerView.setCenter(player.getPosition());
@@ -102,12 +92,12 @@ int main(void)
 		//set window to the player view
 		gameWindow.setView(playerView);
 
+		//update player (movement)
 		player.update();
 
 		//draw sprites
-		gameWindow.draw(wall.getSprite());
-		gameWindow.draw(player.getSprite());
-
+		player.draw(&gameWindow);
+		wall.draw(&gameWindow);
 
 		//displays screen
 		gameWindow.display();

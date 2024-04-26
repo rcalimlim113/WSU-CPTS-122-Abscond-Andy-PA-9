@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SFML/Graphics.hpp"
+#include "SFML/Window.hpp"
 #include <iostream>
 
 #include "Entity.h"
@@ -16,13 +17,13 @@ private:
 	int _speed;
 
 public:
+	//overwritten virtual functions
+	//initializes player
 	void initialize();
+	//loads texture to sprite
 	void load();
+	//updates position based on movement
 	void update();
-	void draw();
-
-	int getSpeed()
-	{
-		return _speed;
-	}
+	//draws sprite to game window
+	void draw(RenderWindow* gameWindow);
 };
