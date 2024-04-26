@@ -5,7 +5,7 @@ void Wall::initialize()
 
 }
 
-void Wall::load()
+void Wall::load(Vector2f scale, float rotation)
 {
 	//load texture
 	if (_texture.loadFromFile("Images/AA WallTexture.png"))
@@ -13,7 +13,9 @@ void Wall::load()
 		std::cout << "Wall texture loaded successfully" << std::endl;
 		//set texture to sprite
 		_sprite.setTexture(_texture);
-		_sprite.setScale(Vector2f(10, 2));
+		_sprite.setScale(scale);
+		_sprite.setOrigin(Vector2f(114 / 2, 52 / 2));
+		_sprite.setRotation(rotation);
 	}
 	else
 	{

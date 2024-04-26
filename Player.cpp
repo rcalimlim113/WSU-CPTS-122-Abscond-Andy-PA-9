@@ -1,5 +1,8 @@
 #include "Player.h"
 
+static const float VIEW_HEIGHT = 960;
+static const float VIEW_LENGTH = 1344;
+
 void Player::initialize()
 {
 	_speed = 1;
@@ -17,7 +20,8 @@ void Player::load()
 		_sprite.setTexture(_texture);
 		_sprite.setTextureRect(IntRect(0, 0, 32, 32));
 		_sprite.setScale(Vector2f(3, 3));
-		_sprite.setPosition(Vector2f(200, 0));
+		_sprite.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
+		_sprite.setOrigin(Vector2f(16, 16));
 	}
 	else
 	{

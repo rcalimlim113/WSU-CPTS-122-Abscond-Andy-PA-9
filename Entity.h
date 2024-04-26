@@ -15,8 +15,8 @@ public:
 	//~Entity() {};
 
 	//virtual functions for derived classes
-	virtual void initialize() = 0;
-	virtual void load() = 0;
+	virtual void initialize() {};
+	virtual void load() {};
 	virtual void update() {};
 	virtual void draw(RenderWindow& gameWindow) = 0;
 
