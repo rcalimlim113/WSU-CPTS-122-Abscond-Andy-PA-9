@@ -10,6 +10,7 @@
 #include "Wall.h"
 #include "Andy.h"
 #include "VictoryPoint.h"
+#include "MainMenu.h"
 
 using namespace::sf;
 
