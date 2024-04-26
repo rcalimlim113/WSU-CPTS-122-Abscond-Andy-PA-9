@@ -1,16 +1,11 @@
 #pragma once
 
-#include <string>
-
 #include "SFML/Graphics.hpp"
-#include "SFML/Window.hpp"
-#include "SFML/Audio.hpp"
 
 #include "Animation.h"
+#include "Collider.h"
 
 using namespace::sf;
-
-using std::string;
 
 //DISCLAIMER
 //a fair amount of the SFML related code here is from Hilze Vonck's youtube tutorials  
@@ -24,15 +19,28 @@ private:
 	float _speed;
 
 public:
+	//constructor and destructor
 	Entity(Texture* texture, Vector2u imageCount, float switchTime, float speed);
 	~Entity() {};
 
+	//updates sprite position based on keyboard inputs
 	void update(float deltaTime);
-	void draw(RenderWindow& window);
 
+	//draws player sprite to window
+	void draw(RenderWindow& window)
+	{
+		window.draw(_body);
+	}
+
+	//returns player's position
 	Vector2f getPosition()
 	{
 		return _body.getPosition();
+	}
+	//collision function
+	Collider getCollider()
+	{
+		return Collider(_body);
 	}
 
 };

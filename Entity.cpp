@@ -12,8 +12,10 @@ Entity::Entity(Texture* texture, Vector2u imageCount, float switchTime, float sp
 
 void Entity::update(float deltaTime)
 {
+	//making a vector to store movement data
 	Vector2f movement(0.0f, 0.0f);
 
+	//getting movement data from user keypresses
 	if (Keyboard::isKeyPressed(Keyboard::Key::A))
 	{
 		movement.x -= _speed*deltaTime;
@@ -31,11 +33,8 @@ void Entity::update(float deltaTime)
 		movement.y += _speed * deltaTime;
 	}
 
+	//set new animation texture (animation lowkey broken ngl)
 	_body.setTextureRect(_animation.uvRect);
+	//move the sprite to the new location, as dictated by movement vector
 	_body.move(movement);
-}
-
-void Entity::draw(RenderWindow& window)
-{
-	window.draw(_body);
 }

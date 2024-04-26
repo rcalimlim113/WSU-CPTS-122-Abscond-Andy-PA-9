@@ -1,39 +1,46 @@
 #pragma once
 
-#include "Entity.h"
+#include "SFML/Graphics.hpp"
 
-class Player : public Entity
+#include "Animation.h"
+#include "Collider.h"
+
+using namespace::sf;
+
+//DISCLAIMER
+//a fair amount of the SFML related code here is from Hilze Vonck's youtube tutorials  
+
+class Player
 {
 private:
-	//int _pLevel;
-	//int _status;
+	RectangleShape _body;
+	Animation _animation;
+	unsigned int _row;
+	float _speed;
 
 public:
-	////constructor
-	//Player(int xCoord = 0, int yCoord = 0, int xWidth = 0, int yWidth = 0)
-	//{
-	//	setXCoord(xCoord), setYCoord(yCoord), setXWidth(xWidth), setYWidth(yWidth), setName("Player"), _pLevel = 1, _status = 0;
-	//}
+	//constructor and destructor
+	Player(Texture* texture, Vector2u imageCount, float switchTime, float speed);
+	~Player() {};
 
-	////getters and setter
-	//void setLevel(int level)
-	//{
-	//	_pLevel = level;
-	//}
-	//void setStatus(int status)
-	//{
-	//	_status = status;
-	//}
-	//int getLevel(void)
-	//{
-	//	return _pLevel;
-	//}
-	//int getStatus(void)
-	//{
-	//	return _status;
-	//}
+	//updates sprite position based on keyboard inputs
+	void update(float deltaTime);
 
-	////move character function, takes the change in X and Y and adds it to the current position for the new position
-	//void moveCharacter(int changeX, int changeY);
+	//draws player sprite to window
+	void draw(RenderWindow& window)
+	{
+		window.draw(_body);
+	}
+
+	//returns player's position
+	Vector2f getPosition()
+	{
+		return _body.getPosition();
+	}
+	//collision function
+	Collider getCollider()
+	{
+		return Collider(_body);
+	}
+
 };
-

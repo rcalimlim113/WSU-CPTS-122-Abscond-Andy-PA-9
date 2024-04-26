@@ -1,2 +1,19 @@
 ﻿  Main.cpp
-  CPTS 122 PA 9 Abscond Andy.vcxproj -> D:\WSU Stuff\CPTS 122 Take 2\CPTS 122 PA 9 Abscond Andy\x64\Debug\CPTS 122 PA 9 Abscond Andy.exe
+  Wall.cpp
+D:\WSU Stuff\CPTS 122 Take 2\CPTS 122 PA 9 Abscond Andy\Main.cpp(89,23): error C2664: 'bool Collider::checkCollision(Collider &,float)': cannot convert argument 1 from 'Collider' to 'Collider &'
+  D:\WSU Stuff\CPTS 122 Take 2\CPTS 122 PA 9 Abscond Andy\Main.cpp(89,57):
+  A non-const reference may only be bound to an lvalue
+  D:\WSU Stuff\CPTS 122 Take 2\CPTS 122 PA 9 Abscond Andy\Collider.h(30,7):
+  see declaration of 'Collider::checkCollision'
+  D:\WSU Stuff\CPTS 122 Take 2\CPTS 122 PA 9 Abscond Andy\Main.cpp(89,23):
+  while trying to match the argument list '(Collider, float)'
+  
+D:\WSU Stuff\CPTS 122 Take 2\CPTS 122 PA 9 Abscond Andy\Main.cpp(90,23): error C2664: 'bool Collider::checkCollision(Collider &,float)': cannot convert argument 1 from 'Collider' to 'Collider &'
+  D:\WSU Stuff\CPTS 122 Take 2\CPTS 122 PA 9 Abscond Andy\Main.cpp(90,57):
+  A non-const reference may only be bound to an lvalue
+  D:\WSU Stuff\CPTS 122 Take 2\CPTS 122 PA 9 Abscond Andy\Collider.h(30,7):
+  see declaration of 'Collider::checkCollision'
+  D:\WSU Stuff\CPTS 122 Take 2\CPTS 122 PA 9 Abscond Andy\Main.cpp(90,23):
+  while trying to match the argument list '(Collider, float)'
+  
+  Generating Code...

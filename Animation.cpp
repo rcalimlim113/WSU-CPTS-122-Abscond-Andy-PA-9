@@ -11,6 +11,7 @@ Animation::Animation(Texture* texture, Vector2u imageCount, float switchTime)
 
 void Animation::update(int row, float deltaTime)
 {
+	//I don't understand SFML animation and this is just Hilze Vonck's code form youtube, also lowkey broken cause our sprite png isn't formatted correctly
 	_currentImage.y = row;
 	_totalTime = deltaTime;
 

@@ -1,14 +1,11 @@
 #pragma once
 
 #include "SFML/Graphics.hpp"
-#include "SFML/Window.hpp"
-#include "SFML/Audio.hpp"
 
 using namespace::sf;
 
 //DISCLAIMER
-//Basically all of the code in these Animation .h and .cpp files is taken from Hilze Vonck on youtube, he had a 14 episode SFML tutorial that I watched,
-//and this entire animation area is basically all his code because SFML is mad confusing
+//Basically all of the code in these Animation .h and .cpp files is taken from Hilze Vonck's animation tutorial
 
 class Animation
 {
@@ -20,9 +17,11 @@ private:
 public:
 	IntRect uvRect;
 public:
+	//constructor and destructor
 	Animation(Texture* texture, Vector2u imageCount, float switchTime);
 	~Animation() {};
 
+	//updates sprite for the animation
 	void update(int row, float deltaTime);
 };
 
