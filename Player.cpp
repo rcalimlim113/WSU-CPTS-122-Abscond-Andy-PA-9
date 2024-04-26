@@ -5,7 +5,7 @@ static const float VIEW_LENGTH = 1344;
 
 void Player::initialize()
 {
-	_speed = 1;
+	_speed = 1.5;
 	win = false;
 	lose = false;
 }
@@ -35,6 +35,7 @@ void Player::update()
 	Vector2f position = getPosition();
 
 	//moves sprite in direction of keypress, at speed decided by _speed
+	//single direction
 	if (Keyboard::isKeyPressed(Keyboard::D))
 	{
 		setPosition(position + Vector2f(0.25 * _speed, 0));
@@ -50,6 +51,32 @@ void Player::update()
 	if (Keyboard::isKeyPressed(Keyboard::S))
 	{
 		setPosition(position + Vector2f(0, 0.25 * _speed));
+	}
+	//diagonal movement
+	if (Keyboard::isKeyPressed(Keyboard::D) && Keyboard::isKeyPressed(Keyboard::S))
+	{
+		setPosition(position + Vector2f(0.25 * _speed, 0.25 * _speed));
+	}
+	if (Keyboard::isKeyPressed(Keyboard::A) && Keyboard::isKeyPressed(Keyboard::S))
+	{
+		setPosition(position + Vector2f(-0.25 * _speed, 0.25 * _speed));
+	}
+	if (Keyboard::isKeyPressed(Keyboard::W) && Keyboard::isKeyPressed(Keyboard::A))
+	{
+		setPosition(position + Vector2f(-0.25 * _speed, -0.25 * _speed));
+	}
+	if (Keyboard::isKeyPressed(Keyboard::W) && Keyboard::isKeyPressed(Keyboard::D))
+	{
+		setPosition(position + Vector2f(0.25 * _speed, -0.25 * _speed));
+	}
+
+	if (getSprite().getPosition().x > 1344 || getSprite().getPosition().x < 0)
+	{
+		_sprite.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
+	}
+	if (getSprite().getPosition().y < 0)
+	{
+		_sprite.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
 	}
 }
 

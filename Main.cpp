@@ -61,7 +61,6 @@ int main(void)
 	wall_1.initialize();
 	wall_2.initialize();
 	wall_3.initialize();
-	wall_4.initialize();
 	//andy 1-16
 	andy_1.initialize(1, 0);
 	andy_2.initialize(-1, 0);
@@ -71,37 +70,46 @@ int main(void)
 	andy_6.initialize(-2, 0);
 	andy_7.initialize(0, 2);
 	andy_8.initialize(0, -2);
-	andy_9.initialize(3, 0);
-	andy_10.initialize(-3, 0);
-	andy_11.initialize(0, 3);
-	andy_12.initialize(0, -3);
-	andy_13.initialize(4, 0);
-	andy_14.initialize(-4, 0);
-	andy_15.initialize(0, 4);
-	andy_16.initialize(0, -4);
+	andy_9.initialize(2, 0);
+	andy_10.initialize(-2, 0);
+	andy_11.initialize(0, 2);
+	andy_12.initialize(0, -2);
+	andy_13.initialize(2, 0);
+	andy_14.initialize(-2, 0);
+	andy_15.initialize(0, 2);
+	andy_16.initialize(0, -2);
 	//exit location
 	exit.initialize();
 	
 	//loading textures to entities
+	//load player
 	player.load();
-	//wall_1.load(Vector2f(50,1), 90);
-	andy_1.load(0, 0);
-	andy_2.load(0, 0);
-	andy_3.load(0, 0);
-	andy_4.load(0, 0);
-	andy_5.load(0, 0);
-	andy_6.load(0, 0);
-	andy_7.load(VIEW_LENGTH, VIEW_HEIGHT);
-	andy_8.load(VIEW_LENGTH, VIEW_HEIGHT);
-	andy_9.load(VIEW_LENGTH, VIEW_HEIGHT);
-	andy_10.load(VIEW_LENGTH, VIEW_HEIGHT);
-	andy_11.load(VIEW_LENGTH, VIEW_HEIGHT);
-	andy_12.load(VIEW_LENGTH, VIEW_HEIGHT);
+	//load walls
+	wall_1.load(Vector2f(20, 3), 0);
+	wall_2.load(Vector2f(20, 3), 90);
+	wall_3.load(Vector2f(20, 3), 90);
+	//load andys
+	andy_1.load(192.5, 340);
+	andy_2.load(1151, 612);
+	andy_3.load(1151.5, 348);
+	andy_4.load(192.5, 612);
+	andy_5.load(672, 174);
+	andy_6.load(672, 786);
+	andy_7.load(1247, 480);
+	andy_8.load(96.25, 480);
+	andy_9.load(VIEW_LENGTH/2, VIEW_HEIGHT);
+	andy_10.load(VIEW_LENGTH / 2, 0);
+	andy_11.load(0, VIEW_HEIGHT/2);
+	andy_12.load(VIEW_LENGTH, VIEW_HEIGHT / 2);
 	andy_13.load(0, VIEW_HEIGHT);
 	andy_14.load(VIEW_LENGTH, 0);
 	andy_15.load(0, 0);
 	andy_16.load(VIEW_LENGTH, VIEW_HEIGHT);
 	exit.load();
+
+	wall_1.setPosition(Vector2f(VIEW_LENGTH /2, -150));
+	wall_2.setPosition(Vector2f(-180, VIEW_HEIGHT));
+	wall_3.setPosition(Vector2f(1494, VIEW_HEIGHT));
 
 	//--------------------------------------------- game loop ---------------------------------------
 	while (gameWindow.isOpen())
@@ -131,68 +139,83 @@ int main(void)
 		if (player.getSprite().getGlobalBounds().intersects(andy_1.getSprite().getGlobalBounds()))
 		{
 			std::cout << "Andy got ya!" << std::endl;
+			player.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
 		}
 		if (player.getSprite().getGlobalBounds().intersects(andy_2.getSprite().getGlobalBounds()))
 		{
 			std::cout << "Andy got ya!" << std::endl;
+			player.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
 		}
 		if (player.getSprite().getGlobalBounds().intersects(andy_3.getSprite().getGlobalBounds()))
 		{
 			std::cout << "Andy got ya!" << std::endl;
+			player.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
 		}
 		if (player.getSprite().getGlobalBounds().intersects(andy_4.getSprite().getGlobalBounds()))
 		{
 			std::cout << "Andy got ya!" << std::endl;
+			player.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
 		}
 		if (player.getSprite().getGlobalBounds().intersects(andy_5.getSprite().getGlobalBounds()))
 		{
 			std::cout << "Andy got ya!" << std::endl;
+			player.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
 		}
 		if (player.getSprite().getGlobalBounds().intersects(andy_6.getSprite().getGlobalBounds()))
 		{
 			std::cout << "Andy got ya!" << std::endl;
+			player.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
 		}
 		if (player.getSprite().getGlobalBounds().intersects(andy_7.getSprite().getGlobalBounds()))
 		{
 			std::cout << "Andy got ya!" << std::endl;
+			player.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
 		}
 		if (player.getSprite().getGlobalBounds().intersects(andy_8.getSprite().getGlobalBounds()))
 		{
 			std::cout << "Andy got ya!" << std::endl;
+			player.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
 		}
 		if (player.getSprite().getGlobalBounds().intersects(andy_9.getSprite().getGlobalBounds()))
 		{
 			std::cout << "Andy got ya!" << std::endl;
+			player.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
 		}
 		if (player.getSprite().getGlobalBounds().intersects(andy_10.getSprite().getGlobalBounds()))
 		{
 			std::cout << "Andy got ya!" << std::endl;
+			player.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
 		}
 		if (player.getSprite().getGlobalBounds().intersects(andy_11.getSprite().getGlobalBounds()))
 		{
 			std::cout << "Andy got ya!" << std::endl;
+			player.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
 		}
 		if (player.getSprite().getGlobalBounds().intersects(andy_12.getSprite().getGlobalBounds()))
 		{
 			std::cout << "Andy got ya!" << std::endl;
+			player.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
 		}
 		if (player.getSprite().getGlobalBounds().intersects(andy_13.getSprite().getGlobalBounds()))
 		{
 			std::cout << "Andy got ya!" << std::endl;
+			player.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
 		}
 		if (player.getSprite().getGlobalBounds().intersects(andy_14.getSprite().getGlobalBounds()))
 		{
 			std::cout << "Andy got ya!" << std::endl;
+			player.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
 		}
 		if (player.getSprite().getGlobalBounds().intersects(andy_15.getSprite().getGlobalBounds()))
 		{
 			std::cout << "Andy got ya!" << std::endl;
+			player.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
 		}
 		if (player.getSprite().getGlobalBounds().intersects(andy_16.getSprite().getGlobalBounds()))
 		{
 			std::cout << "Andy got ya!" << std::endl;
+			player.setPosition(Vector2f(VIEW_LENGTH / 2.0f, VIEW_HEIGHT / 2.0f));
 		}
-
 
 		//exit collision, you won
 		if (player.getSprite().getGlobalBounds().intersects(exit.getSprite().getGlobalBounds()))
@@ -212,14 +235,19 @@ int main(void)
 		//update player (movement)
 		player.update();
 		//update Andys
+		//innermost andys
 		andy_1.updateX();
 		andy_2.updateX();
 		andy_3.updateY();
 		andy_4.updateY();
+
+		//middle circle andys
 		andy_5.updateX();
 		andy_6.updateX();
 		andy_7.updateY();
 		andy_8.updateY();
+
+		//outer circle andys
 		andy_9.updateX();
 		andy_10.updateX();
 		andy_11.updateY();
@@ -233,7 +261,9 @@ int main(void)
 		//draw player
 		player.draw(gameWindow);
 		//draw walls
-		//wall_1.draw(gameWindow);
+		wall_1.draw(gameWindow);
+		wall_2.draw(gameWindow);
+		wall_3.draw(gameWindow);
 		//draw andys
 		andy_1.draw(gameWindow);
 		andy_2.draw(gameWindow);
