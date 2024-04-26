@@ -15,7 +15,8 @@ class Player : public Entity
 {
 private:
 	int _speed;
-
+	bool win;
+	bool lose;
 public:
 	//overwritten virtual functions
 	//initializes player

@@ -8,14 +8,19 @@
 
 using namespace::sf;
 
-class Wall : public Entity
+class Andy : public Entity
 {
+private:
+	int _speed;
 public:
 	//overwritten virtual functions
-	//initializes wall
+	//initializes Andy
 	void initialize();
 	//loads texture to sprite
 	void load();
+	//updates position based on player's movement
+	void update();
 	//draws sprite to game window
 	void draw(RenderWindow& gameWindow);
 };
+

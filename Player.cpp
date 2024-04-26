@@ -3,6 +3,8 @@
 void Player::initialize()
 {
 	_speed = 1;
+	win = false;
+	lose = false;
 }
 
 void Player::load()

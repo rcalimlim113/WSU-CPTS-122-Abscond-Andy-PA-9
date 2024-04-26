@@ -8,11 +8,11 @@
 
 using namespace::sf;
 
-class Wall : public Entity
+class VictoryPoint : public Entity
 {
 public:
 	//overwritten virtual functions
-	//initializes wall
+	//initializes victory point
 	void initialize();
 	//loads texture to sprite
 	void load();

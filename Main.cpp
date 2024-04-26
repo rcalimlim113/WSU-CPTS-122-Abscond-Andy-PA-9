@@ -8,6 +8,8 @@
 #include "Entity.h"
 #include "Player.h"
 #include "Wall.h"
+#include "Andy.h"
+#include "VictoryPoint.h"
 
 using namespace::sf;
 
@@ -41,17 +43,23 @@ int main(void)
 	//initializing sprites
 	Sprite spriteBoy, spriteWall, spriteWallGun, spriteAndyChaser, spriteFireball0, spriteFireball1, spriteVictoryThing;
 
-	//creating player & wall
+	//creating entities
 	Player player;
 	Wall wall;
+	Andy andy;
+	VictoryPoint exit;
 
-	//initializing player & wall
+	//initializing entities
 	player.initialize();
 	wall.initialize();
+	andy.initialize();
+	exit.initialize();
 
-	//loading textures to player & wall
+	//loading textures to entities
 	player.load();
 	wall.load();
+	andy.load();
+	exit.load();
 
 	//--------------------------------------------- game loop ---------------------------------------
 	while (gameWindow.isOpen())
@@ -78,9 +86,13 @@ int main(void)
 		}
 
 		//collision
-		if (player.getSprite().getGlobalBounds().intersects(wall.getSprite().getGlobalBounds()))
+		if (player.getSprite().getGlobalBounds().intersects(andy.getSprite().getGlobalBounds()))
 		{
-			std::cout << "collision 1" << std::endl;
+			std::cout << "Andy got ya!" << std::endl;
+		}
+		if (player.getSprite().getGlobalBounds().intersects(exit.getSprite().getGlobalBounds()))
+		{
+			std::cout << "You got out!" << std::endl;
 		}
 
 		//--------------------------------------------- window display stuff, draws and displays the graphics ----------------------------------
@@ -94,10 +106,14 @@ int main(void)
 
 		//update player (movement)
 		player.update();
+		//update Andy (copy player movement w/ delay)
+		andy.update();
 
-		//draw sprites
+		//draw entities
 		player.draw(gameWindow);
-		wall.draw(gameWindow);
+		//wall.draw(gameWindow);
+		andy.draw(gameWindow);
+		exit.draw(gameWindow);
 
 		//displays screen
 		gameWindow.display();
