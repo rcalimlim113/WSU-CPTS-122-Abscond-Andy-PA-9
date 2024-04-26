@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SFML/Graphics.hpp"
+#include <iostream>
 
 #include "Entity.h"
 
@@ -8,11 +9,8 @@ using namespace::sf;
 
 class Wall : public Entity
 {
-private:
-
 public:
-	Wall(Sprite sprite)
-	{
-		setSprite(sprite);
-	}
+	void initialize();
+	void load();
+	void draw();
 };

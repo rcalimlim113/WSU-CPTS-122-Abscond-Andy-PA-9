@@ -48,30 +48,13 @@ int main(void)
 	//initializing sprites
 	Sprite spriteBoy, spriteGirl, spriteWall, spriteWallGun, spriteAndyChaser, spriteFireball0, spriteFireball1, spriteVictoryThing;
 
-	if (texPlayerB.loadFromFile("Images/AA BoyTexture.png"))
-	{
-		std::cout << "Player texture loaded successfully" << std::endl;
-		spriteBoy.setTexture(texPlayerB);
-		spriteBoy.setTextureRect(IntRect(0, 0, 32, 32));
-		spriteBoy.setScale(Vector2f(3, 3));
-	}
-	else
-	{
-		std::cout << "Player texture failed to load" << std::endl;
-	}
-	Player player(spriteBoy, 1);
+	Player player;
+	player.initialize();
+	player.load();
 
-	if (texWall.loadFromFile("Images/AA WallTexture.png"))
-	{
-		std::cout << "Wall texture loaded successfully" << std::endl;
-		spriteWall.setTexture(texWall);
-		spriteWall.setScale(Vector2f(10, 2));
-	}
-	else
-	{
-		std::cout << "Wall texture failed to load" << std::endl;
-	}
-	Wall wall(spriteWall);
+	Wall wall;
+	wall.initialize();
+	wall.load();
 
 	//game loop
 	while (gameWindow.isOpen())
@@ -97,24 +80,7 @@ int main(void)
 			}
 		}
 
-		Vector2f position = player.getPosition();
-		
-		if (Keyboard::isKeyPressed(Keyboard::D))
-		{
-			player.setPosition(position + Vector2f(0.25 * player.getSpeed(), 0));
-		}
-		if (Keyboard::isKeyPressed(Keyboard::A))
-		{
-			player.setPosition(position + Vector2f(-0.25 * player.getSpeed(), 0));
-		}
-		if (Keyboard::isKeyPressed(Keyboard::W))
-		{
-			player.setPosition(position + Vector2f(0, -0.25 * player.getSpeed()));
-		}
-		if (Keyboard::isKeyPressed(Keyboard::S))
-		{
-			player.setPosition(position + Vector2f(0, 0.25 * player.getSpeed()));
-		}
+
 
 
 
@@ -132,14 +98,16 @@ int main(void)
 		//center view on player's sprite
 		playerView.setCenter(player.getPosition());
 		//clear window
-		gameWindow.clear(Color(255,0,255));
+		gameWindow.clear(Color::Black);
 		//set window to the player view
 		gameWindow.setView(playerView);
 
+		player.update();
 
-		//draw player sprite
-		gameWindow.draw(player.getSprite());
+		//draw sprites
 		gameWindow.draw(wall.getSprite());
+		gameWindow.draw(player.getSprite());
+
 
 		//displays screen
 		gameWindow.display();

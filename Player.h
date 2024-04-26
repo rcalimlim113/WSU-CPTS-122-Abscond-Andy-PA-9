@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SFML/Graphics.hpp"
+#include <iostream>
 
 #include "Entity.h"
 
@@ -15,10 +16,11 @@ private:
 	int _speed;
 
 public:
-	Player(Sprite sprite, int speed)
-	{
-		setSprite(sprite), _speed = speed;
-	}
+	void initialize();
+	void load();
+	void update();
+	void draw();
+
 	int getSpeed()
 	{
 		return _speed;
