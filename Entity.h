@@ -1,77 +1,47 @@
 #pragma once
 
-#include <string>
-
 #include "SFML/Graphics.hpp"
-#include "SFML/Window.hpp"
-#include "SFML/Audio.hpp"
 
 using namespace::sf;
 
-using std::string;
-
 class Entity
 {
-private:
-	int _xCoord;
-	int _yCoord;
-	int _xWidth;
-	int _yWidth;
-	string _name;
-	Sprite _entitySprite;
-
+protected:
+	Texture _texture;
+	Sprite _sprite;
 public:
-	//getters
-	int getXCoord(void)
+	//constructors and destructor
+	//Entity() {};
+	//~Entity() {};
+
+	//virtual functions for derived classes
+	virtual void initialize() = 0;
+	virtual void load() = 0;
+	virtual void update() {};
+	virtual void draw(RenderWindow* gameWindow) = 0;
+
+	//getters and setters
+	Sprite getSprite()
 	{
-		return _xCoord;
+		return _sprite;
 	}
-	int getYCoord(void)
+	void setSprite(Sprite sprite)
 	{
-		return _yCoord;
+		_sprite = sprite;
 	}
-	int getXWidth(void)
+	Vector2f getPosition()
 	{
-		return _xWidth;
+		return _sprite.getPosition();
 	}
-	int getYWidth(void)
+	void setPosition(Vector2f position)
 	{
-		return _yWidth;
+		_sprite.setPosition(position);
 	}
-	string getName(void)
+	void setTexture(Texture texture)
 	{
-		return _name;
-	}
-	Sprite getSprite(void)
-	{
-		return _entitySprite;
+		_texture = texture;
 	}
 
-	//setters
-	void setXCoord(int xCoord)
-	{
-		_xCoord = xCoord;
-	}
-	void setYCoord(int yCoord)
-	{
-		_yCoord = yCoord;
-	}
-	void setXWidth(int xWidth)
-	{
-		_xWidth = xWidth;
-	}
-	void setYWidth(int yWidth)
-	{
-		_yWidth = yWidth;
-	}
-	void setName(string name)
-	{
-		_name = name;
-	}
-	void setSprite(Sprite entitySprite)
-	{
-		_entitySprite = entitySprite;
-	}
 };
 
 
