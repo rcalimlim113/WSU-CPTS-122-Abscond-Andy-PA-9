@@ -15,7 +15,7 @@ public:
 	//initializes wall
 	void initialize();
 	//loads texture to sprite
-	void load();
+	void load(Vector2f scale, float rotation);
 	//draws sprite to game window
 	void draw(RenderWindow& gameWindow);
 };

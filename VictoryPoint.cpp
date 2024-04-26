@@ -14,7 +14,8 @@ void VictoryPoint::load()
 		//set texture to sprite
 		_sprite.setTexture(_texture);
 		_sprite.setScale(Vector2f(0.25, 0.25));
-		_sprite.setPosition(500, -200);
+		_sprite.setPosition(1344/2, 1500);
+		_sprite.setOrigin(526 / 2, 229 / 2);
 	}
 	else
 	{

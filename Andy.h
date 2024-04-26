@@ -11,15 +11,18 @@ using namespace::sf;
 class Andy : public Entity
 {
 private:
-	int _speed;
+	int _speedX;
+	int _speedY;
+
 public:
 	//overwritten virtual functions
 	//initializes Andy
-	void initialize();
+	void initialize(int speedX, int speedY);
 	//loads texture to sprite
-	void load();
+	void load(int startX, int startY);
 	//updates position based on player's movement
-	void update();
+	void updateX();
+	void updateY();
 	//draws sprite to game window
 	void draw(RenderWindow& gameWindow);
 };

@@ -50,20 +50,57 @@ int main(void)
 	
 	//creating entities
 	Player player;
-	Wall wall;
-	Andy andy;
+	Wall wall_1, wall_2, wall_3, wall_4, wall_5;
+	Andy andy_1, andy_2, andy_3, andy_4, andy_5, andy_6, andy_7, andy_8, andy_9, andy_10, andy_11, andy_12, andy_13, andy_14, andy_15, andy_16;
 	VictoryPoint exit;
 
 	//initializing entities
+	//player
 	player.initialize();
-	wall.initialize();
-	andy.initialize();
+	//walls 1-4
+	wall_1.initialize();
+	wall_2.initialize();
+	wall_3.initialize();
+	wall_4.initialize();
+	//andy 1-16
+	andy_1.initialize(1, 0);
+	andy_2.initialize(-1, 0);
+	andy_3.initialize(0, 1);
+	andy_4.initialize(0, -1);
+	andy_5.initialize(2, 0);
+	andy_6.initialize(-2, 0);
+	andy_7.initialize(0, 2);
+	andy_8.initialize(0, -2);
+	andy_9.initialize(3, 0);
+	andy_10.initialize(-3, 0);
+	andy_11.initialize(0, 3);
+	andy_12.initialize(0, -3);
+	andy_13.initialize(4, 0);
+	andy_14.initialize(-4, 0);
+	andy_15.initialize(0, 4);
+	andy_16.initialize(0, -4);
+	//exit location
 	exit.initialize();
-
+	
 	//loading textures to entities
 	player.load();
-	wall.load();
-	andy.load();
+	//wall_1.load(Vector2f(50,1), 90);
+	andy_1.load(0, 0);
+	andy_2.load(0, 0);
+	andy_3.load(0, 0);
+	andy_4.load(0, 0);
+	andy_5.load(0, 0);
+	andy_6.load(0, 0);
+	andy_7.load(VIEW_LENGTH, VIEW_HEIGHT);
+	andy_8.load(VIEW_LENGTH, VIEW_HEIGHT);
+	andy_9.load(VIEW_LENGTH, VIEW_HEIGHT);
+	andy_10.load(VIEW_LENGTH, VIEW_HEIGHT);
+	andy_11.load(VIEW_LENGTH, VIEW_HEIGHT);
+	andy_12.load(VIEW_LENGTH, VIEW_HEIGHT);
+	andy_13.load(0, VIEW_HEIGHT);
+	andy_14.load(VIEW_LENGTH, 0);
+	andy_15.load(0, 0);
+	andy_16.load(VIEW_LENGTH, VIEW_HEIGHT);
 	exit.load();
 
 	//--------------------------------------------- game loop ---------------------------------------
@@ -90,11 +127,74 @@ int main(void)
 			}
 		}
 
-		//collision
-		if (player.getSprite().getGlobalBounds().intersects(andy.getSprite().getGlobalBounds()))
+		//collision w/ an andy, you lose
+		if (player.getSprite().getGlobalBounds().intersects(andy_1.getSprite().getGlobalBounds()))
 		{
 			std::cout << "Andy got ya!" << std::endl;
 		}
+		if (player.getSprite().getGlobalBounds().intersects(andy_2.getSprite().getGlobalBounds()))
+		{
+			std::cout << "Andy got ya!" << std::endl;
+		}
+		if (player.getSprite().getGlobalBounds().intersects(andy_3.getSprite().getGlobalBounds()))
+		{
+			std::cout << "Andy got ya!" << std::endl;
+		}
+		if (player.getSprite().getGlobalBounds().intersects(andy_4.getSprite().getGlobalBounds()))
+		{
+			std::cout << "Andy got ya!" << std::endl;
+		}
+		if (player.getSprite().getGlobalBounds().intersects(andy_5.getSprite().getGlobalBounds()))
+		{
+			std::cout << "Andy got ya!" << std::endl;
+		}
+		if (player.getSprite().getGlobalBounds().intersects(andy_6.getSprite().getGlobalBounds()))
+		{
+			std::cout << "Andy got ya!" << std::endl;
+		}
+		if (player.getSprite().getGlobalBounds().intersects(andy_7.getSprite().getGlobalBounds()))
+		{
+			std::cout << "Andy got ya!" << std::endl;
+		}
+		if (player.getSprite().getGlobalBounds().intersects(andy_8.getSprite().getGlobalBounds()))
+		{
+			std::cout << "Andy got ya!" << std::endl;
+		}
+		if (player.getSprite().getGlobalBounds().intersects(andy_9.getSprite().getGlobalBounds()))
+		{
+			std::cout << "Andy got ya!" << std::endl;
+		}
+		if (player.getSprite().getGlobalBounds().intersects(andy_10.getSprite().getGlobalBounds()))
+		{
+			std::cout << "Andy got ya!" << std::endl;
+		}
+		if (player.getSprite().getGlobalBounds().intersects(andy_11.getSprite().getGlobalBounds()))
+		{
+			std::cout << "Andy got ya!" << std::endl;
+		}
+		if (player.getSprite().getGlobalBounds().intersects(andy_12.getSprite().getGlobalBounds()))
+		{
+			std::cout << "Andy got ya!" << std::endl;
+		}
+		if (player.getSprite().getGlobalBounds().intersects(andy_13.getSprite().getGlobalBounds()))
+		{
+			std::cout << "Andy got ya!" << std::endl;
+		}
+		if (player.getSprite().getGlobalBounds().intersects(andy_14.getSprite().getGlobalBounds()))
+		{
+			std::cout << "Andy got ya!" << std::endl;
+		}
+		if (player.getSprite().getGlobalBounds().intersects(andy_15.getSprite().getGlobalBounds()))
+		{
+			std::cout << "Andy got ya!" << std::endl;
+		}
+		if (player.getSprite().getGlobalBounds().intersects(andy_16.getSprite().getGlobalBounds()))
+		{
+			std::cout << "Andy got ya!" << std::endl;
+		}
+
+
+		//exit collision, you won
 		if (player.getSprite().getGlobalBounds().intersects(exit.getSprite().getGlobalBounds()))
 		{
 			std::cout << "You got out!" << std::endl;
@@ -111,13 +211,47 @@ int main(void)
 
 		//update player (movement)
 		player.update();
-		//update Andy
-		andy.update();
+		//update Andys
+		andy_1.updateX();
+		andy_2.updateX();
+		andy_3.updateY();
+		andy_4.updateY();
+		andy_5.updateX();
+		andy_6.updateX();
+		andy_7.updateY();
+		andy_8.updateY();
+		andy_9.updateX();
+		andy_10.updateX();
+		andy_11.updateY();
+		andy_12.updateY();
+		andy_13.updateX();
+		andy_14.updateX();
+		andy_15.updateY();
+		andy_16.updateY();
 
 		//draw entities
+		//draw player
 		player.draw(gameWindow);
-		//wall.draw(gameWindow);
-		andy.draw(gameWindow);
+		//draw walls
+		//wall_1.draw(gameWindow);
+		//draw andys
+		andy_1.draw(gameWindow);
+		andy_2.draw(gameWindow);
+		andy_3.draw(gameWindow);
+		andy_4.draw(gameWindow);
+		andy_5.draw(gameWindow);
+		andy_6.draw(gameWindow);
+		andy_7.draw(gameWindow);
+		andy_8.draw(gameWindow);
+		andy_9.draw(gameWindow);
+		andy_10.draw(gameWindow);
+		andy_11.draw(gameWindow);
+		andy_12.draw(gameWindow);
+		andy_13.draw(gameWindow);
+		andy_14.draw(gameWindow);
+		andy_15.draw(gameWindow);
+		andy_16.draw(gameWindow);
+		//draw exit goal
 		exit.draw(gameWindow);
 
 		//displays screen
