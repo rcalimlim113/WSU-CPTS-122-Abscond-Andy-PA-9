@@ -44,6 +44,10 @@ int main(void)
 	//initializing sprites
 	Sprite spriteBoy, spriteWall, spriteWallGun, spriteAndyChaser, spriteFireball0, spriteFireball1, spriteVictoryThing;
 
+	//game menu
+	//MainMenu menu((float)VIEW_LENGTH, (float)VIEW_HEIGHT);
+	//menu.runMenu();
+	
 	//creating entities
 	Player player;
 	Wall wall;
@@ -107,7 +111,7 @@ int main(void)
 
 		//update player (movement)
 		player.update();
-		//update Andy (copy player movement w/ delay)
+		//update Andy
 		andy.update();
 
 		//draw entities

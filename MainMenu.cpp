@@ -27,15 +27,26 @@ MainMenu::MainMenu(float width, float height)
 
 	buttonSelected = -1;
 }
-int runMenu()
+int MainMenu::runMenu()
 {
 	sf::RenderWindow Menu(sf::VideoMode(1344, 960), "Main Menu", sf::Style::Default);
 	MainMenu mainMenu(Menu.getSize().x, Menu.getSize().y);
 	sf::RectangleShape menuBackground;
 	menuBackground.setSize(sf::Vector2f(1344, 960));
 	sf::Texture menuTexture;
-	menuTexture.loadFromFile("Images/AA GameBackground.png");
-	menuBackground.setTexture(&menuTexture);
+	//menuTexture.loadFromFile("Images/AA GameBackground.png");
+	//load texture
+	if (menuTexture.loadFromFile("Images/AA GameBackground.png"))
+	{
+		std::cout << "Menu texture loaded successfully" << std::endl;
+		//set texture to sprite
+		menuBackground.setTexture(&menuTexture);
+	}
+	else
+	{
+		std::cout << "Menu texture failed to load" << std::endl;
+	}
+	//menuBackground.setTexture(&menuTexture);
 	//implement menu option textures once they are made
 	while (Menu.isOpen())
 	{
@@ -65,10 +76,6 @@ int runMenu()
 			}
 		}
 	}
-}
-MainMenu::~MainMenu()
-{
-
 }
 void MainMenu::draw(sf::RenderWindow& window)
 {

@@ -17,6 +17,7 @@ void Player::load()
 		_sprite.setTexture(_texture);
 		_sprite.setTextureRect(IntRect(0, 0, 32, 32));
 		_sprite.setScale(Vector2f(3, 3));
+		_sprite.setPosition(Vector2f(200, 0));
 	}
 	else
 	{

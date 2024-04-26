@@ -13,7 +13,7 @@ public:
 	int buttonPressed() {
 		return buttonSelected;
 	}
-	~MainMenu();
+	~MainMenu() {};
 private:
 	int buttonSelected;
 	
